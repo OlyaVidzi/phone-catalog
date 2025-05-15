@@ -7,7 +7,7 @@
 ## 🎨 Design Reference
 
 The site design was inspired by this Figma prototype:
-[View Figma Design](https://www.figma.com/file/BUusqCIMAWALqfBahnyIiH/Phone-catalog-(V2)-Original-Dark)
+[Figma Design](https://www.figma.com/file/BUusqCIMAWALqfBahnyIiH/Phone-catalog-(V2)-Original-Dark)
 
 ## 📝 Description
 
@@ -62,3 +62,4 @@ The site design was inspired by this Figma prototype:
 🌐 Deploy to GitHub Pages
 
   - npm run deploy
+
