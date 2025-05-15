@@ -62,4 +62,3 @@ The site design was inspired by this Figma prototype:
 🌐 Deploy to GitHub Pages
 
   - npm run deploy
-
