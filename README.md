@@ -50,16 +50,16 @@ The site design was inspired by this Figma prototype:
 🛠️ Installation
 
   - Clone the repository
-    git clone https://github.com/OlyaVidzi/phone-catalog.git
-    cd phone-catalog
+    - git clone https://github.com/OlyaVidzi/phone-catalog.git
+    - cd phone-catalog
   - Switch to the main branch
-    git checkout main
+    - git checkout main
   - Install dependencies
-    npm install
+    - npm install
   - Start the development server
-    npm start
+    - npm start
 
 🌐 Deploy to GitHub Pages
 
-  npm run deploy
+  - npm run deploy
 
