@@ -44,3 +44,22 @@ The site design was inspired by this Figma prototype:
 - `helpers/` – Logic for localStorage and other utility functions
 - `enums/` – Enum types for clear value management (e.g., category types)
 - `hooks/` – Custom React hooks
+
+## 📦 How to Run the Project Locally
+
+🛠️ Installation
+
+  - Clone the repository
+    git clone https://github.com/OlyaVidzi/phone-catalog.git
+    cd phone-catalog
+  - Switch to the main branch
+    git checkout main
+  - Install dependencies
+    npm install
+  - Start the development server
+    npm start
+
+🌐 Deploy to GitHub Pages
+
+  npm run deploy
+
