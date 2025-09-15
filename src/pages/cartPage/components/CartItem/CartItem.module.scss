@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding: 24px;
   gap: 24px;
-  background-color: $secondary-bg;
+  background-color: var(--card-bg);
 
   @media(max-width: $mobile-medium) {
     flex-direction: column;
@@ -47,7 +47,7 @@
   }
 
   & img {
-    color: $icon-bg; /* Переміщено сюди */
+    color: var(--icon-bg); /* Переміщено сюди */
   }
 }
 
@@ -76,20 +76,20 @@
   &__btn {
     width: 32px;
     height: 32px;
-    border: 1px solid $element-bg;
+    border: 1px solid var(--card-border-bg);
     background-color: inherit;
-    color: $element-bg;
+    color: var(--card-border-bg);
     font-size: 20px;
 
     &:hover {
-      background-color: $btn-hover-fav-bg;
-      color: $main-color;
+      background-color: var(--btn-hover-fav-bg);
+      color: var(--main-color);
     }
 
     &:disabled {
       background-color: inherit;
       cursor: not-allowed;
-      color: $secondary-color;
+      color: var(--secondary-color);
       opacity: 0.5;
     }
   }

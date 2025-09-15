@@ -9,9 +9,9 @@
   bottom: 0;
   left: 0;
   z-index: 10;
-  background-color: $main-bg;
+  background-color: var(--main-bg);
   padding: 32px 152px;
-  border-top: 1px solid $secondary-color;
+  border-top: 1px solid var(--secondary-color);
 
   @media (max-width: $tablet) {
     flex-direction: column;
@@ -49,7 +49,7 @@
   }
 
   & li:hover {
-    color: $secondary-color;
+    color: var(--secondary-color);
 
     @include default-transition;
   }
@@ -69,7 +69,7 @@
 
   & h4 {
     font-weight: 700;
-    color: $secondary-color;
+    color: var(--secondary-color);
   }
 
   & img {

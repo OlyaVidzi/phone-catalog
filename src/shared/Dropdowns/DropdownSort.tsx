@@ -1,32 +1,30 @@
-import React, { useState, useEffect, useRef } from "react";
-import styles from './Dropdowns.module.scss';
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const DropdownSort: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<string>('Newest');
-  const selectRef = useRef<HTMLDivElement>(null);
-  
-  const handleSelect = (option: string) => {
+  const [value, setValue] = useState<string>("Newest");
+
+  const options = ["Newest", "Alphabetically", "Cheapest"];
+
+  const handleChange = (event: SelectChangeEvent) => {
+    const option = event.target.value;
+
     setValue(option);
-    
+
     const params = new URLSearchParams(searchParams);
 
-    params.set('sort', option);
+    params.set("sort", option);
     setSearchParams(params);
-    
-    if (selectRef.current) {
-      selectRef.current.blur();
-    }
-    
-    setIsOpen(false);
   };
 
-  const options = ['Newest', 'Alphabetically', 'Cheapest'];
-
   useEffect(() => {
-    const sort = searchParams.get('sort');
+    const sort = searchParams.get("sort");
 
     if (sort) {
       setValue(sort);
@@ -34,41 +32,25 @@ const DropdownSort: React.FC = () => {
   }, [searchParams]);
 
   return (
-    <div className={styles.container}>
-      <h4 className={styles.title}>Sort by</h4>
-      <div 
-        className={styles.select} 
-        onClick={() => setIsOpen(prev => !prev)}
-        ref={selectRef}
-        tabIndex={0}
-      >
-        <h4 className={styles.select__title}>{value}</h4>
-        {isOpen ? (
-          <img 
-            src="images/icons/ArrowUp.png" 
-            className={styles.select__img} 
-          />
-        ) : (
-          <img 
-            src="images/icons/ArrowDown.png" 
-            className={styles.select__img} 
-          />
-        )}
-        {isOpen && (
-          <div className={styles.select__options}>
-            {options.map((option) => (
-              <div 
-                key={option} 
-                onMouseDown={() => handleSelect(option)} 
-                className={styles.select__option}
-              >
-                {option}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
+    <Box sx={{ minWidth: 150 }}>
+      <FormControl fullWidth>
+        <InputLabel id="sort-select-label">
+          Sort by
+        </InputLabel>
+        <Select
+          labelId="sort-select-label"
+          id="sort-select"
+          value={value}
+          label="Sort by"
+          onChange={handleChange}>
+          {options.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Box>
   );
 };
 

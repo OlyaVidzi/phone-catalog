@@ -25,13 +25,16 @@ const ButtonAddToFavorites: React.FC<{
       className={cn(styles.btn, { [styles.selected]: existingItem })}
       onClick={handleAddToFavorites}
     >
-      {existingItem ? (
+      {!existingItem ? (
+        <img
+          className={styles.btn__img}
+          src='images/icons/FavouritesDark.png'
+        />
+      ) : (
         <img
           className={styles.btn__img}
           src="images/icons/FavouritesAdded.png"
         />
-      ) : (
-        <img className={styles.btn__img} src="images/icons/Favourites.png" />
       )}
     </button>
   );

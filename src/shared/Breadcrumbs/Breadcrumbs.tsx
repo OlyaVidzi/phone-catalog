@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Breadcrumbs.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 interface BreadcrumbsProps {
   categoryName?: string,
@@ -11,10 +12,17 @@ interface BreadcrumbsProps {
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   categoryName, productName,
 }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div className={styles.container}>
       <Link to={'/'}>
-        <img src="images/icons/Home.png" className={styles.iconHome} />
+        <img
+          src={theme === 'dark'
+            ? 'images/icons/HomeDark.png'
+            : 'images/icons/HomeLight.png'
+          }
+          className={styles.iconHome} />
       </Link>
       <img src="images/icons/Vector.png" className={styles.iconVector} />
       <Link to={`/${categoryName}`}>

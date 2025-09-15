@@ -9,14 +9,14 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
-  color: $main-color;
-  background-color: $btn-default-add-bg;
+  color: var(--btn-text-color-bg);
+  background-color: var(--btn-default-add-bg);
 
   &:hover {
-    background-color: $btn-hover-add-bg;
+    background-color: var(--btn-hover-add-bg);
   }
 }
 
 .selected {
-  background-color: $btn-selected-add-bg;
+  background-color: var(--btn-selected-add-bg);
 }

@@ -9,7 +9,7 @@
 }
 
 body {
-  color: $main-color;
+  color: var(--main-color);
   font-family: Mont, sans-serif;
   font-size: 12px;
 }
@@ -17,7 +17,7 @@ body {
 main {
   display: flex;
   justify-content: center;
-  background-color: $main-bg;
+  background-color: var(--main-bg);
   min-height: 100vh;
   padding: 32px;
 

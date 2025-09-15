@@ -3,12 +3,12 @@
 @mixin page-title {
   font-weight: 800;
   font-size: 48px;
-  line-height: 56px;
+  line-height: 48px;
   letter-spacing: -1%;
 
   @media(max-width: $mobile) {
     font-size: 32px;
-    line-height: 41px;
+    line-height: 38px;
   }
 }
 
@@ -28,7 +28,7 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
-  color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 @mixin nav-after-line {
@@ -41,7 +41,7 @@
     transform-origin: center;
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: var(--option-selected-bg);
     transition: transform 0.3s ease;
   }
 
@@ -59,19 +59,19 @@
     width: 100%;
     left: 0;
     top: 50%;
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
   }
 }
 
 @mixin line {
   width: 100%;
   height: 1px;
-  background-color: $element-bg;
+  background-color: var(--card-border-bg);
 }
 
 @mixin hover-shadow {
   &:hover {
-    box-shadow: 0 0 5px $btn-hover-add-bg;
+    box-shadow: 0 0 5px var(--btn-hover-add-bg);
   }
 }
 

@@ -11,17 +11,17 @@
     height: 32px;
     width: 32px;
     background-color: inherit;
-    border: 1px solid $element-bg;
+    border: 1px solid var(--card-border-bg);
 
     & > span {
-      color: $element-bg;
+      color: var(--default-color);
     }
 
     &:hover {
-      background-color: $element-bg;
+      background-color: var(--card-border-bg);
 
       & > span {
-        color: $main-color;
+        color: var(--main-color);
       }
     }
 
@@ -30,7 +30,7 @@
       cursor: not-allowed;
 
       & > span {
-        color: $element-bg;
+        color: var(--card-border-bg);
       }
 
       &:hover {
@@ -60,7 +60,8 @@
       align-items: center;
       width: 32px;
       height: 32px;
-      background-color: $secondary-bg;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border-bg);
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
@@ -69,11 +70,12 @@
       @include default-transition;
 
       &:hover {
-        background-color: $element-bg;
+        background-color: var(--card-border-bg);
       }
 
       &.selected {
-        background-color: $accent-bg;
+        background-color: var(--btn-default-add-bg);
+        color: var(--selected-color)
       }
     }
   }

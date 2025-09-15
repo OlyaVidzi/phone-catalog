@@ -3,7 +3,7 @@
 .title {
   font-weight: 700;
   line-height: 100%;
-  color: $secondary-color;
+  color: var(--secondary-color);
   margin-bottom: 4px;
 }
 
@@ -12,18 +12,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $element-bg;
+  background-color: var(--card-border-bg);
   width: 176px;
   height: 40px;
   padding: 10px 12px;
-  color: $main-color;
+  color: var(--main-color);
 
   @media (max-width: $tablet) {
     width: 130px;
   }
 
   &:focus {
-    border: 1px solid $accent-bg;
+    border: 1px solid var(--accent-bg);
   }
 
   &__title {
@@ -42,19 +42,19 @@
     top: 42px;
     left: 0;
     width: 176px;
-    background-color: $block-bg;
-    border: 1px solid $surface-bg;
+    background-color: var(--block-bg);
+    border: 1px solid var(--surface-bg);
   }
 
   &__option {
     padding: 10px;
-    color: $secondary-color;
+    color: var(--secondary-color);
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
 
     &:hover {
-      background-color: $surface-bg;
+      background-color: var(--surface-bg);
       cursor: pointer;
     }
   }

@@ -9,8 +9,8 @@
   top: 0;
   left: 0;
   z-index: 1001;
-  background-color: $main-bg;
-  border-bottom: 1px solid $secondary-color;
+  background-color: var(--main-bg);
+  border-bottom: 1px solid var(--secondary-color);
 
   @media(max-width: $tablet) {
     height: 48px;
@@ -21,7 +21,7 @@
 .nav {
   display: flex;
   gap: 64px;
-  color: $secondary-color;
+  color: var(--secondary-color);
 
   @media (max-width: $tablet) {
     display: none;
@@ -39,7 +39,7 @@
 }
 
 .active {
-  color: $main-color;
+  color: var(--main-color);
 }
 
 .logo {
@@ -51,6 +51,7 @@
   @media (max-width: $tablet) {
     width: 64px;
     height: 22px;
+    font-size: 12px;
     margin: 13px 16px;
   }
 
@@ -78,14 +79,14 @@
     align-items: center;
     width: 64px;
     height: 100%;
-    box-shadow: 0 0 1px $secondary-color;
+    box-shadow: 0 0 1px var(--secondary-color);
     font-weight: 800;
     font-size: 12px;
 
     @include nav-after-line;
 
     &:hover {
-      box-shadow: 0 0 2px $secondary-color;
+      box-shadow: 0 0 2px var(--secondary-color);
     }
   }
 
@@ -106,6 +107,20 @@
     right: 20px;
     font-weight: 700;
     font-size: 9px;
+  }
+}
+
+.settings {
+  position: fixed;
+  right: 6px;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+
+  @media (max-width: $tablet) {
+    top: 56px;
   }
 }
 

@@ -1,73 +1,55 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from './Dropdowns.module.scss';
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const DropdownSort: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<string>('8');
-  const selectRef = useRef<HTMLDivElement>(null);
+  const [value, setValue] = useState<string>("8");
 
-  const handleSelect = (option: string) => {
+  const options = ["4", "8", "16", "all"];
+
+  const handleChange = (event: SelectChangeEvent) => {
+    const option = event.target.value;
+
     setValue(option);
 
     const params = new URLSearchParams(searchParams);
 
-    params.set('perPage', option);
-    params.set('page', '1');
+    params.set("perPage", option);
+    params.set("page", "1");
     setSearchParams(params);
-
-    if (selectRef.current) {
-      selectRef.current.blur();
-    }
-
-    setIsOpen(false);
   };
 
-  const options = ['4', '8', '16', 'all'];
-
   useEffect(() => {
-    const perPage = searchParams.get('perPage') || '8';
+    const perPage = searchParams.get("perPage") || "8";
 
     setValue(perPage);
   }, [searchParams]);
 
   return (
-    <div className={styles.container}>
-      <h4 className={styles.title}>Items on page</h4>
-      <div
-        className={styles.select}
-        onClick={() => setIsOpen(prev => !prev)}
-        ref={selectRef}
-        tabIndex={0}
-      >
-        <h4 className={styles.select__title}>{value}</h4>
-        {isOpen ? (
-          <img
-            src="images/icons/ArrowUp.png"
-            className={styles.select__img}
-          />
-        ) : (
-          <img
-            src="images/icons/ArrowDown.png"
-            className={styles.select__img}
-          />
-        )}
-        {isOpen && (
-          <div className={styles.select__options}>
-            {options.map((option) => (
-              <div
-                key={option}
-                className={styles.select__option}
-                onMouseDown={() => handleSelect(option)}
-              >
-                {option}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
+    <Box sx={{ minWidth: 150 }}>
+      <FormControl fullWidth>
+        <InputLabel id="perPage-select-label">
+          Items on page
+        </InputLabel>
+        <Select
+          labelId="perPage-select-label"
+          id="perPage-select"
+          value={value}
+          label="Items on page"
+          onChange={handleChange}>
+          {options.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Box>
   );
 };
 

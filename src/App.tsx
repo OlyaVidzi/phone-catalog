@@ -7,6 +7,8 @@ import CategoryPage from "./pages/categoryPage";
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import { CategoryType } from "./enums/CategoryType";
 import './index.scss';
+import './styles/themes/light.css';
+import './styles/themes/dark.css';
 import ProductDetails from "./shared/ProductDetails";
 import FavouritesPage from "./pages/favouritesPage";
 import { useEffect } from "react";
@@ -19,7 +21,7 @@ function App() {
   }, [location]);
 
   return (
-    <div>
+    <>
       <Header />
 
       <main>
@@ -51,7 +53,7 @@ function App() {
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 }
 

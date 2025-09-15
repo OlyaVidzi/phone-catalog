@@ -20,17 +20,17 @@
         width: 32px;
         height: 32px;
         background-color: inherit;
-        border: 1px solid $element-bg;
+        border: 1px solid var(--card-border-bg);
 
         & > span {
-          color: $element-bg;
+          color: var(--card-border-bg);
         }
 
         &:hover {
-          background-color: $element-bg;
+          background-color: var(--card-border-bg);
 
           & > span {
-            color: $main-color;
+            color: var(--main-color);
           }
         }
       }

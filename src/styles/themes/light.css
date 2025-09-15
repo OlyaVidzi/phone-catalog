@@ -1,0 +1,31 @@
+body.light {
+  /* Backgrounds */
+  --main-bg: #fff;
+  --card-bg: #fff;
+  --card-border-bg: #E2E6E9;
+  --option-selected-bg: #4A4D58;
+
+
+  --icon-bg: #4A4D58;
+  --block-bg: #0F1121;
+  --surface-bg: #323542;
+
+  /* Text colors */
+  --main-color: #313237;
+  --secondary-color: #89939A;
+  --selected-color: #fff;
+  --default-color: #313237;
+
+  /* Button add to favourites */
+  --btn-default-fav-bg: #323542;
+  --btn-hover-fav-bg: #515562;
+  --btn-selected-fav-bg: #3B3E4A;
+
+  /* Button add to cart */
+  --btn-default-add-bg: #313237;
+  --btn-hover-add-bg: #42434c;
+  --btn-selected-add-bg: #777d82;
+  --btn-text-color-bg: #F1F2F9;
+}
+
+

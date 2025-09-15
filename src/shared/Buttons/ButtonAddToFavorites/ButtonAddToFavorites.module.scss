@@ -6,18 +6,18 @@
   align-items: center;
   width: 40px;
   height: 40px;
-  background-color: $btn-default-fav-bg;
+  background-color: var(--btn-default-fav-bg);
 
   &__img {
     width: 16px;
   }
 
   &:hover {
-    background-color: $btn-hover-fav-bg;
+    background-color: var(--btn-hover-fav-bg);
   }
 }
 
 .selected {
   background-color: inherit;
-  border: 1px solid $btn-default-fav-bg;
+  border: 1px solid var(--btn-selected-add-bg);
 }

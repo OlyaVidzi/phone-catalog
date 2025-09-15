@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import HamburgerMenu from './HamburgerMenu';
 import { Link, useLocation } from 'react-router-dom';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { ThemeContext } from '../contexts/ThemeContext';
+import ButtonSwitchTheme from
+  '../shared/Buttons/ButtonSwitchTheme/ButtonSwitchTheme';
 
 const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [active, setActive] = useState<string>('/');
   const { pathname } = useLocation();
@@ -33,7 +37,12 @@ const Header = () => {
     <>
       <div className={styles.container}>
         <Link to="/">
-          <img src="images/logo/Logo.png" className={styles.logo} />
+          <img
+            className={styles.logo}
+            src={theme === 'dark'
+              ? 'images/logo/LogoDark.png'
+              : 'images/logo/LogoLight.png'
+            } />
         </Link>
 
         <ul className={styles.nav}>
@@ -61,17 +70,32 @@ const Header = () => {
 
         <div className={styles.icons}>
           <Link to="/favourites" className={`${styles.icons__link} ${active === '/favourites' ? styles.active : ''}`}>
-            <img src="images/icons/Favourites.png"/>
+            <img src={theme === 'dark'
+              ? 'images/icons/FavouritesDark.png'
+              : 'images/icons/FavouritesLight.png'
+            } />
             {favouritesItems.length > 0 && (
               <div>{favouritesItems.length}</div>
             )}
           </Link>
+
           <Link to="/cart" className={`${styles.icons__link} ${active === '/cart' ? styles.active : ''}`}>
-            <img src="images/icons/Cart.png"/>
+            <img src={theme === 'dark'
+              ? 'images/icons/CartDark.png'
+              : 'images/icons/CartLight.png'
+            } />
             {cartItems.length > 0 && (
               <div>{countItemsInCart}</div>
             )}
           </Link>
+        </div>
+        {/* <DropdownLanguage /> */}
+
+        <div className={styles.settings}>
+          <ButtonSwitchTheme
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+          />
         </div>
 
         <div className={styles.burgerIcon}>

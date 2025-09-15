@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
+import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const Footer = () => {
+  const { theme } = useContext(ThemeContext);
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -9,7 +12,11 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <Link to={'/'}>
-        <img src="./images/logo/Logo.png" className={styles.logo} />
+        <img src={theme === 'dark'
+          ? 'images/logo/LogoDark.png'
+          : 'images/logo/LogoLight.png'
+        }
+        className={styles.logo} />
       </Link>
       <ul className={styles.nav}>
         <li onClick={handleScrollTop}>
