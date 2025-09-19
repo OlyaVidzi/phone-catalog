@@ -4,11 +4,12 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   & > h1 {
-    @include page-title;
-
     margin-bottom: 56px;
+
+    @include page-title;
 
     @media(max-width: $tablet) {
       margin-bottom: 32px;
@@ -23,8 +24,8 @@
 .main {
   display: flex;
   height: 360px;
-  gap: 16px;
   margin-bottom: 8px;
+  gap: 2px;
 
   @media(max-width: $desktop-medium) {
     height: 260px;
@@ -34,21 +35,22 @@
     height: 360px;
   }
 
-  & > button {
+  &__btn_slider {
     width: 32px;
-    background-color: inherit;
+    background-color: var(--banner-bg);
+    color: var(--main-color);
     outline: none;
-    border: 1px solid var(--card-border-bg);
     cursor: pointer;
     transition: all 0.3s ease;
 
-    &:hover {
-      background-color: var(--card-border-bg);
+    @include hover-shadow;
+
+    &--right {
+      border-radius: 0 20px 20px 0;
     }
 
-    & img {
-      width: 6px;
-      height: 10px;
+    &--left {
+      border-radius: 20px 0 0 20px;
     }
   }
 }
@@ -56,7 +58,7 @@
 .content {
   display: flex;
   gap: 20px;
-  background-color: black;
+  background-color: var(--banner-bg);
   width: 100%;
 
   @media(max-width: $mobile-medium) {
@@ -73,14 +75,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 6px;
     width: 50%;
     padding: 18px;
-    color: var(--main-color);
+    color: var(--banner-text-color);
     background-color: inherit;
+    border: 1px solid var(--banner-text-color);
     font-weight: 600;
     font-size: 14px;
-    border: 1px solid var(--card-border-bg);
 
     @media(max-width: $desktop-medium) {
       font-size: 10px;
@@ -97,7 +99,7 @@
     }
 
     &:hover {
-      background-color: var(--card-border-bg);
+      box-shadow: 0 0 5px #A378FF;
     }
   }
 
@@ -107,8 +109,8 @@
     width: 50%;
     margin: 16px;
     padding: 46px;
-    background-color: #1f2021;
     border-radius: 16px;
+    background-color: var(--banner-inner-bg);
 
     @media(max-width: $desktop-medium) {
       margin: 10px;
@@ -116,7 +118,6 @@
     }
 
     @media(max-width: $mobile-medium) {
-      background-color: inherit;
       width: 80%;
     }
 

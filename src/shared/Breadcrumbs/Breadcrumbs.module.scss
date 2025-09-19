@@ -7,29 +7,28 @@
 }
 
 .iconHome {
-  width: 16px;
-}
+  color: #75767F;
+  transition: color 0.3s ease;
 
-.iconVector {
-  width: 6px;
-  height: 10px;
+  &:hover {
+    color: var(--main-color);
+  }
 }
 
 .h4 {
   font-weight: 700;
   color: var(--secondary-color);
+  transition: color 0.3s ease;
 
-  &__white {
-    font-weight: 700;
+  &:hover {
     color: var(--main-color);
-    text-transform: capitalize;
   }
+}
 
-  &__name {
-    font-weight: 700;
-    color: var(--secondary-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.name {
+  font-weight: 700;
+  color: var(--secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

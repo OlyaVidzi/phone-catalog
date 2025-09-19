@@ -12,6 +12,7 @@ import './styles/themes/dark.css';
 import ProductDetails from "./shared/ProductDetails";
 import FavouritesPage from "./pages/favouritesPage";
 import { useEffect } from "react";
+import PayPage from "./pages/payPage/PayPage";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/favourites" element={<FavouritesPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart/pay" element={<PayPage />} />
 
             <Route
               path="/phones"

@@ -24,18 +24,23 @@ const ButtonAddToFavorites: React.FC<{
     <button
       className={cn(styles.btn, { [styles.selected]: existingItem })}
       onClick={handleAddToFavorites}
+      aria-pressed={!!existingItem}
+      aria-label={
+        existingItem
+          ? `Remove ${product.name} from favourites`
+          : `Add ${product.name} to favourites`
+      }
     >
-      {!existingItem ? (
-        <img
-          className={styles.btn__img}
-          src='images/icons/FavouritesDark.png'
-        />
-      ) : (
-        <img
-          className={styles.btn__img}
-          src="images/icons/FavouritesAdded.png"
-        />
-      )}
+      <img
+        className={styles.btn__img}
+        src={
+          existingItem
+            ? "images/icons/FavouritesAdded.png"
+            : 'images/icons/FavouritesDark.png'
+        }
+        alt=""
+        aria-hidden="true"
+      />
     </button>
   );
 };

@@ -2,11 +2,9 @@ body.light {
   /* Backgrounds */
   --main-bg: #fff;
   --card-bg: #fff;
-  --card-border-bg: #E2E6E9;
+  --card-border-bg: #c3cacf;
   --option-selected-bg: #4A4D58;
   --icon-bg: #4A4D58;
-  --block-bg: #0F1121;
-  --surface-bg: #323542;
 
   /* Text colors */
   --main-color: #313237;
@@ -23,7 +21,12 @@ body.light {
   --btn-default-add-bg: #313237;
   --btn-hover-add-bg: #42434c;
   --btn-selected-add-bg: #777d82;
-  --btn-text-color-bg: #F1F2F9;
+  --btn-text-color-bg: #fff;
+
+  /* Banner */
+  --banner-bg: #d4d8dc;
+  --banner-inner-bg: #eef1f3;
+  --banner-text-color: #777d82;
 }
 
 

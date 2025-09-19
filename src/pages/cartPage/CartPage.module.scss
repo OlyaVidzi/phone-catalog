@@ -52,26 +52,30 @@
       letter-spacing: -1%;
     }
 
-    & h4 {
+    & p {
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
       color: var(--secondary-color);
       margin-bottom: 26px;
     }
+  }
 
-    & button {
-      width: 100%;
-      height: 48px;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 21px;
-      color: var(--main-color);
-      background-color: var(--btn-default-add-bg);
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--btn-text-color-bg);
+    background-color: var(--btn-default-add-bg);
+    transition: background-color 0.3s ease;
 
-      &:hover {
-        background-color: var(--btn-hover-add-bg);
-      }
+    &:hover {
+      background-color: var(--btn-hover-add-bg);
     }
   }
 }

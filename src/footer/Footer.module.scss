@@ -15,7 +15,7 @@
 
   @media (max-width: $tablet) {
     flex-direction: column;
-    height: 256px;
+    height: 206px;
     padding: 16px 32px;
     gap: 32px;
   }
@@ -31,6 +31,10 @@
 
     @include default-transition;
   }
+}
+
+nav {
+
 }
 
 .nav {
@@ -56,23 +60,32 @@
 }
 
 .backToTop {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  width: 46px;
+  height: 46px;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  font-size: 22px;
+  background-color: var(--btn-default-add-bg);
+  border: 1px solid var(--card-border-bg);
+  border-radius: 50%;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 6px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: all 0.3s ease-in;
 
+  @media(max-width: $tablet) {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
   &:hover {
-    transform: scale(1.02);
-  }
-
-  & h4 {
-    font-weight: 700;
-    color: var(--secondary-color);
-  }
-
-  & img {
-    width: 32px;
+    background-color: var(--btn-hover-add-bg);
   }
 }

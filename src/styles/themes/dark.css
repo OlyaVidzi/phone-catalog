@@ -5,8 +5,6 @@ body.dark {
   --card-border-bg: #3B3E4A;
   --option-selected-bg: #F1F2F9;
   --icon-bg: #52584a;
-  --block-bg: #0F1121;
-  --surface-bg: #323542;
 
   /* Text colors */
   --main-color: #F1F2F9;
@@ -24,4 +22,9 @@ body.dark {
   --btn-hover-add-bg: #A378FF;
   --btn-selected-add-bg: #323542;
   --btn-text-color-bg: #F1F2F9;
+
+  /* Banner */
+  --banner-bg: #161827;
+  --banner-inner-bg: #323542;
+  --banner-text-color: #F1F2F9;
 }

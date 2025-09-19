@@ -70,12 +70,12 @@
     display: flex;
     justify-content: space-between;
 
-    & h3 {
+    & dt {
       font-weight: 700;
       color: var(--secondary-color);
     }
 
-    & h4 {
+    & dd {
       font-weight: 700;
     }
   }

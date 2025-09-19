@@ -35,33 +35,53 @@ const ShopByCategory = () => {
 
   return (
     !error && (
-      <div className={styles.container}>
-        <h1>Shop by category</h1>
+      <section className={styles.container} aria-label="Shop by category">
+        <h2>Shop by category</h2>
 
         <div className={styles.categories}>
-          <Link to={'/phones'} className={styles.categories__item}>
-            <div>
-              <img src="img/category-phones.png" />
-              <h3>Mobile phones</h3>
-              <h4>{`${countPhones.length} models`}</h4>
-            </div>
+          <Link
+            to={'/phones'}
+            className={styles.categories__item}
+            aria-label={`Go to Mobile Phones category, ${countPhones.length} models`}
+          >
+            <figure>
+              <img src="img/category-phones.png" alt="Mobile phones" />
+              <figcaption>
+                <h3>Mobile phones</h3>
+                <p>{`${countPhones.length} models`}</p>
+              </figcaption>
+            </figure>
           </Link>
-          <Link to={'/tablets'} className={styles.categories__item}>
-            <div>
-              <img src="img/category-tablets.png" />
-              <h3>Tablets</h3>
-              <h4>{`${countTablets.length} models`}</h4>
-            </div>
+
+          <Link
+            to={'/tablets'}
+            className={styles.categories__item}
+            aria-label={`Go to Tablets category, ${countTablets.length} models`}
+          >
+            <figure>
+              <img src="img/category-tablets.png" alt="Tablets" />
+              <figcaption>
+                <h3>Tablets</h3>
+                <p>{`${countTablets.length} models`}</p>
+              </figcaption>
+            </figure>
           </Link>
-          <Link to={'/accessories'} className={styles.categories__item}>
-            <div>
-              <img src="img/category-accessories.png" />
-              <h3>Accessories</h3>
-              <h4>{`${countAccessories.length} models`}</h4>
-            </div>
+
+          <Link
+            to={'/accessories'}
+            className={styles.categories__item}
+            aria-label={`Go to Accessories category, ${countAccessories.length} models`}
+          >
+            <figure>
+              <img src="img/category-accessories.png" alt="Accessories" />
+              <figcaption>
+                <h3>Accessories</h3>
+                <p>{`${countAccessories.length} models`}</p>
+              </figcaption>
+            </figure>
           </Link>
         </div>
-      </div>
+      </section>
     )
   );
 };

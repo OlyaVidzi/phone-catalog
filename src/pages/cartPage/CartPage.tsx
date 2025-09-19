@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Breadcrumbs from "../../shared/Breadcrumbs";
 import styles from './CartPage.module.scss';
 import CartItem from "./components/CartItem";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Loader from "../../shared/Loader";
 import EmptyContent from "../../shared/EmptyContent";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
@@ -31,25 +31,30 @@ const CartPage = () => {
 
       {isLoading ? (
         <Loader />
-      ) : items.length !== 0 ? (
+      ) : items.length > 0 ? (
         <div className={styles.main}>
-          <div className={styles.main__items}>
+          <section className={styles.main__items} aria-label="Cart items">
             {items.map(item => (
-              <CartItem item={item} key={item.id}/>
+              <CartItem item={item} key={item.id} />
             ))}
-          </div>
+          </section>
 
-          <div className={styles.main__price}>
+          <aside className={styles.main__price} aria-label="Order summary">
             <h2>{`$${totalPrice}`}</h2>
-            <h4>{`Total for ${countItemsInCart} items`}</h4>
+            <p>{`Total for ${countItemsInCart} items`}</p>
             <div className={styles.line}></div>
-            <button>Checkout</button>
-          </div>
+            <Link
+              to='pay'
+              aria-label="Proceed to checkout"
+              className={styles.main__btn}
+            >
+              Checkout
+            </Link>
+          </aside>
         </div>
       ) : (
         <EmptyContent title="Your cart is empty" img="img/is-empty.png"/>
       )}
-
     </div>
   );
 };

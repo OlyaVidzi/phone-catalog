@@ -94,19 +94,23 @@ const CategoryPage: React.FC<{ category: CategoryType }> = ({ category }) => {
   }, [category]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      role="region"
+      aria-label={`Category page: ${category}`}
+    >
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <Breadcrumbs categoryName={category} />
 
-          <div className={styles.title}>
-            <h1>
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </h1>
-            <h4>{`${products.length} models`}</h4>
-          </div>
+          <header className={styles.title}>
+            <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+            <p aria-label={`${products.length} models in this category`}>
+              {`${products.length} models`}
+            </p>
+          </header>
 
           <div className={styles.content}>
             <div className={styles.content__dropdown}>
@@ -120,11 +124,13 @@ const CategoryPage: React.FC<{ category: CategoryType }> = ({ category }) => {
                 img="img/is-empty.png"
               />
             ) : (
-              <div className={styles.cards}>
+              <ul className={styles.cards}>
                 {visibleProducts.map((product) => (
-                  <CardItem product={product} key={product.id} />
+                  <li key={product.id}>
+                    <CardItem product={product} />
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </div>
         </>
@@ -139,6 +145,7 @@ const CategoryPage: React.FC<{ category: CategoryType }> = ({ category }) => {
         />
       )}
     </div>
+
   );
 };
 

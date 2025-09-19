@@ -17,32 +17,39 @@ const Description: React.FC<{ product: IProductDetails }> = ({ product }) => {
   ];
 
   return (
-    <div className={styles.description}>
-      <div className={styles.about}>
+    <section
+      className={styles.description}
+      aria-label="Product description and technical specifications"
+    >
+      <section className={styles.about} aria-label="About product">
         <h2>About</h2>
-        <div className={styles.line}></div>
+        <hr className={styles.line} />
         {product.description.map(item => (
-          <div className={styles.about__item} key={item.title}>
+          <article className={styles.about__item} key={item.title}>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
-          </div>
+          </article>
         ))}
-      </div>
-      <div className={styles.techSpecs}>
+      </section>
+
+      <section
+        className={styles.techSpecs}
+        aria-label="Technical specifications"
+      >
         <h2>Tech specs</h2>
-        <div className={styles.line}></div>
-        <div className={styles.techSpecs__items}>
-          {specs.map((spec, index) => (
+        <hr className={styles.line} />
+        <dl className={styles.techSpecs__items}>
+          {specs.map((spec, index) =>
             spec.value && (
               <div key={index}>
-                <h4>{spec.label}</h4>
-                <p>{spec.value}</p>
+                <dt>{spec.label}</dt>
+                <dd>{spec.value}</dd>
               </div>
             )
-          ))}
-        </div>
-      </div>
-    </div>
+          )}
+        </dl>
+      </section>
+    </section>
   );
 };
 

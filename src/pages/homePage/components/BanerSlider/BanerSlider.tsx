@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './BanerSlider.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 
 const BanerSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,12 +29,23 @@ const BanerSlider = () => {
   }, [slider.length]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      aria-label="Promotional banner slider"
+      role="region"
+    >
       <h1>Welcome to Nice Gadgets store!</h1>
 
       <div className={styles.main}>
-        <button onClick={handleClickLeft}>
-          <img src="images/icons/VectorLeft.png"/>
+        <button
+          onClick={handleClickLeft}
+          className={`
+            ${styles.main__btn_slider}
+            ${styles['main__btn_slider--left']}
+          `}
+          aria-label="Previous slide"
+        >
+          <IoMdArrowDropleft size={20}/>
         </button>
 
         <div className={styles.content}>
@@ -42,7 +54,9 @@ const BanerSlider = () => {
             <h3>Be the first!</h3>
             <Link
               to={'/phones/apple-iphone-11-128gb-black'}
-              className={styles.content__link}>
+              className={styles.content__link}
+              aria-label="Order iPhone 11 128GB Black"
+            >
               <button className={styles.content__btn}>ORDER NOW</button>
             </Link>
           </div>
@@ -50,12 +64,20 @@ const BanerSlider = () => {
             <img
               src={slider[currentIndex]}
               className={styles.content__rightSlider}
+              alt={`iPhone 11 slide ${currentIndex + 1}`}
             />
           </div>
         </div>
 
-        <button onClick={handleClickRight}>
-          <img src="images/icons/VectorRight.png" />
+        <button
+          onClick={handleClickRight}
+          className={`
+            ${styles.main__btn_slider}
+            ${styles['main__btn_slider--right']}
+          `}
+          aria-label="Next slide"
+        >
+          <IoMdArrowDropright size={20}/>
         </button>
       </div>
 
@@ -67,8 +89,9 @@ const BanerSlider = () => {
             className={cn(styles.dots__dot, {
               [styles.dots__activeDot]: index === currentIndex,
             })}
-          >
-          </button>
+            aria-label={`Go to slide ${index + 1}`}
+            aria-current={index === currentIndex ? "true" : undefined}
+          />
         ))}
       </div>
     </div>

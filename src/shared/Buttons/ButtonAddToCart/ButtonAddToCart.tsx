@@ -27,6 +27,12 @@ const ButtonAddToCart: React.FC<{ product: IProductCard }> = ({ product }) => {
     <button
       className={cn(styles.btn, { [styles.selected]: existingItem })}
       onClick={handleAddToCart}
+      aria-pressed={!!existingItem}
+      aria-label={
+        existingItem
+          ? `Remove ${product.name} from cart`
+          : `Add ${product.name} to cart`
+      }
     >
       {existingItem ? 'Added' : 'Add to cart'}
     </button>

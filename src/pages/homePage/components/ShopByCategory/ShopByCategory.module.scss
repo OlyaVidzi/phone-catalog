@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 24px;
 
-  & h1 {
+  & h2 {
     @include section-title;
   }
 }
@@ -40,7 +40,7 @@
       margin-bottom: 4px;
     }
 
-    & h4 {
+    & p {
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;

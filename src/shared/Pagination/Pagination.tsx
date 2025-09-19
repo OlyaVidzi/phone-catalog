@@ -56,10 +56,11 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} aria-label="Pagination">
       <button
         onClick={handleSetPreviousCurrentPage}
         disabled={+currentPage <= 1}
+        aria-label="Previous page"
       >
         <span>{'<'}</span>
       </button>
@@ -74,6 +75,10 @@ const Pagination: React.FC<PaginationProps> = ({
               : ''
             }
             onClick={() => handleSetCurrentPage(index + 1)}
+            aria-current={currentPage === (index + 1).toString()
+              ? 'page'
+              : undefined
+            }
           >
             {index + 1}
           </li>
@@ -83,6 +88,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={handleSetNextCurrentPage}
         disabled={+currentPage >= totalPages}
+        aria-label="Next page"
       >
         <span>{'>'}</span>
       </button>

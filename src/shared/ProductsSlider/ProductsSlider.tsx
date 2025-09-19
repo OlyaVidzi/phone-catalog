@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import styles from './ProductsSlider.module.scss';
 import CardItem from '../CardItem';
 import { IProductCard } from '../../interfaces/ProductCard.interface';
+import { FaAnglesRight } from "react-icons/fa6";
+import { FaAnglesLeft } from "react-icons/fa6";
 
 interface IProductsSliderProps {
   products: IProductCard[],
@@ -27,12 +29,22 @@ const ProductsSlider: React.FC<IProductsSliderProps> = ({
   };
 
   return (
-    <div className={styles.slider}>
+    <section className={styles.slider} aria-label={`${title} slider`} role="region">
       <div className={styles.slider__header}>
         <h2>{title}</h2>
         <div>
-          <button onClick={slideLeft}><span>{'<'}</span></button>
-          <button onClick={slideRight}><span>{'>'}</span></button>
+          <button
+            onClick={slideLeft}
+            aria-label={`Scroll ${title} slider left`}
+          >
+            <FaAnglesLeft />
+          </button>
+          <button
+            onClick={slideRight}
+            aria-label={`Scroll ${title} slider right`}
+          >
+            <FaAnglesRight />
+          </button>
         </div>
       </div>
 
@@ -43,7 +55,8 @@ const ProductsSlider: React.FC<IProductsSliderProps> = ({
           ))}
         </div>
       </div>
-    </div>
+    </section>
+
   );
 };
 

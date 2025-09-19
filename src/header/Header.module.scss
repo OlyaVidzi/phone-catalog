@@ -12,16 +12,31 @@
   background-color: var(--main-bg);
   border-bottom: 1px solid var(--secondary-color);
 
+  @media (max-width: $desktop-medium) {
+    gap: 16px
+  }
+
   @media(max-width: $tablet) {
     height: 48px;
-    gap: 16px;
   }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .nav {
   display: flex;
-  gap: 64px;
+  height: 100%;
+  gap: 74px;
   color: var(--secondary-color);
+
+  @media (max-width: $desktop-medium) {
+    gap: 60px
+  }
 
   @media (max-width: $tablet) {
     display: none;
@@ -111,17 +126,11 @@
 }
 
 .settings {
-  position: fixed;
-  right: 6px;
-  top: 72px;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
 
-  @media (max-width: $tablet) {
-    top: 56px;
-  }
 }
 
 .burgerIcon {
@@ -134,13 +143,23 @@
   }
 
   & button {
-    background-color: inherit;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    background-color: inherit;
     width: 48px;
     border: none;
+    font-size: 20px;
+    color: var(--main-color);
   }
 
   & img {
     width: 16px;
   }
+}
+
+.btnSwitch {
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
 }

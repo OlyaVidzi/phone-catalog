@@ -11,23 +11,23 @@
   display: flex;
   align-items: center;
   width: fit-content;
-  gap: 10px;
-  margin-top: 40px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+
+  & h4 {
+    margin-top: 1px;
+  }
 
   @media(max-width: $mobile) {
     margin-top: 24px;
   }
 
-  &__img {
-    width: 6px;
-    height: 8px;
+  &:hover {
+    color: var(--main-color);
   }
-}
-
-.backLink {
-  display: flex;
-  width: fit-content;
 }
 
 .title {

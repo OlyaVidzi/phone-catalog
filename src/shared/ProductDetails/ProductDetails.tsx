@@ -12,6 +12,7 @@ import { IProductCard } from '../../interfaces/ProductCard.interface';
 import Breadcrumbs from '../Breadcrumbs';
 import EmptyContent from '../EmptyContent';
 import Loader from '../Loader';
+import { MdKeyboardBackspace } from "react-icons/md";
 
 const ProductDetails = () => {
   const { productId, category } = useParams();
@@ -72,7 +73,7 @@ const ProductDetails = () => {
   }, [productId, category]);
 
   return (
-    <div className={styles.container}>
+    <article className={styles.container}>
       {isLoading ? (
         <Loader />
       ) : (
@@ -83,19 +84,16 @@ const ProductDetails = () => {
               productName={productFull?.name}
             />
 
-            <Link to={`/${category}`} className={styles.backLink}>
+            <Link to={`/${category}`}>
               <div className={styles.back}>
-                <img
-                  src="images/icons/VectorLeft.png"
-                  className={styles.back__img}
-                />
+                <MdKeyboardBackspace size={18}/>
                 <h4>Back</h4>
               </div>
             </Link>
 
             <div className={styles.title}>{productFull?.name}</div>
 
-            <div className={styles.main}>
+            <section className={styles.main}>
               <div className={styles.images}>
                 <div className={styles.images__small}>
                   {productFull?.images.map(image => (
@@ -111,7 +109,8 @@ const ProductDetails = () => {
                   <img src={`${isSelectedImg}`} />
                 </div>
               </div>
-              <div className={styles.details}>
+
+              <section className={styles.details}>
                 <div className={styles.details__colors}>
                   <h4>Available colors</h4>
                   <div className={styles.details__colorsBlock}>
@@ -128,7 +127,9 @@ const ProductDetails = () => {
                     ))}
                   </div>
                 </div>
+
                 <div className={styles.line}></div>
+
                 <div className={styles.details__capacity}>
                   <h4>Select capacity</h4>
                   <div className={styles.details__capacityBlock}>
@@ -144,15 +145,19 @@ const ProductDetails = () => {
                     ))}
                   </div>
                 </div>
+
                 <div className={styles.line}></div>
+
                 <div className={styles.details__price}>
                   <p className={styles.details__currentPrice}>{`$${productFull.priceDiscount}`}</p>
                   <p className={styles.details__fullPrice}>{`$${productFull.priceRegular}`}</p>
                 </div>
+
                 <div className={styles.details__buttons}>
                   <ButtonAddToCart product={product!}/>
                   <ButtonAddToFavorites product={product!}/>
                 </div>
+
                 <div className={styles.details__descriptions}>
                   <div>
                     <h3>Screen</h3>
@@ -171,8 +176,8 @@ const ProductDetails = () => {
                     <h4>{productFull.ram}</h4>
                   </div>
                 </div>
-              </div>
-            </div>
+              </section>
+            </section>
 
             <Description product={productFull}/>
             <Recommendations productCategory={productFull.category} />
@@ -184,7 +189,7 @@ const ProductDetails = () => {
           />
         )
       )}
-    </div>
+    </article>
   );
 };
 

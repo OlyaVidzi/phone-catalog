@@ -21,23 +21,29 @@ const FavouritesPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      role="region"
+      aria-label="Favourites page"
+    >
       <Breadcrumbs categoryName={pathname.slice(1)} />
 
-      <div className={styles.title}>
+      <header className={styles.title}>
         <h1>Favorites</h1>
-        <h4>{`${items.length} items`}</h4>
-      </div>
+        <p aria-label={`${items.length} items in favourites`}>{`${items.length} items`}</p>
+      </header>
 
       {isLoading ? (
         <Loader />
       ) : (
         items.length !== 0 ? (
-          <div className={styles.items}>
+          <ul className={styles.items}>
             {items.map(item => (
-              <CardItem product={item} key={item.id}/>
+              <li key={item.id}>
+                <CardItem product={item} />
+              </li>
             ))}
-          </div>
+          </ul>
         ) : (
           <EmptyContent
             title="Your favourites is empty"

@@ -31,25 +31,27 @@ const DropdownSort: React.FC = () => {
   }, [searchParams]);
 
   return (
-    <Box sx={{ minWidth: 150 }}>
-      <FormControl fullWidth>
-        <InputLabel id="perPage-select-label">
-          Items on page
-        </InputLabel>
-        <Select
-          labelId="perPage-select-label"
-          id="perPage-select"
-          value={value}
-          label="Items on page"
-          onChange={handleChange}>
-          {options.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Box>
+    <div role="region" aria-label="Sort products">
+      <Box sx={{ minWidth: 150 }}>
+        <FormControl fullWidth>
+          <InputLabel id="perPage-select-label">Items on page</InputLabel>
+          <Select
+            labelId="perPage-select-label"
+            id="perPage-select"
+            value={value}
+            label="Items on page"
+            onChange={handleChange}
+            aria-label="Select number of items per page"
+          >
+            {options.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+    </div>
   );
 };
 

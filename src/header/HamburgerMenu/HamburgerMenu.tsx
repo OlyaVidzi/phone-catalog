@@ -1,73 +1,102 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './HamburgerMenu.module.scss';
-import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 interface IHamburgerMenuProps {
   setMenuOpen: (isOpen: boolean) => void,
 }
 
 const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ setMenuOpen }) => {
-  const { pathname } = useLocation();
-  const [active, setActive] = useState<string>('/');
+  const { theme } = useContext(ThemeContext);
 
   const handleCloseMenu = () => {
     setMenuOpen(false);
   };
 
-  useEffect(() => {
-    setActive(pathname);
-  }, [pathname]);
-
   return (
-    <div className={styles.container}>
+    <nav className={styles.container} aria-label="Mobile navigation">
       <ul className={styles.nav}>
-        <li onClick={handleCloseMenu}>
-          <Link
+        <li>
+          <NavLink
             to="/"
-            className={`${styles.nav__link} ${active === '/' ? styles.active : ''}`}
+            className={({ isActive }) =>
+              `${styles.nav__link} ${isActive ? styles.active : ""}`
+            }
+            onClick={handleCloseMenu}
           >
             HOME
-          </Link>
+          </NavLink>
         </li>
-        <li onClick={handleCloseMenu}>
-          <Link
+        <li>
+          <NavLink
             to="/phones"
-            className={`${styles.nav__link} ${active === '/phones' ? styles.active : ''}`}
+            className={({ isActive }) =>
+              `${styles.nav__link} ${isActive ? styles.active : ""}`
+            }
+            onClick={handleCloseMenu}
           >
             PHONES
-          </Link>
+          </NavLink>
         </li>
-        <li onClick={handleCloseMenu}>
-          <Link
+        <li>
+          <NavLink
             to="/tablets"
-            className={`${styles.nav__link} ${active === '/tablets' ? styles.active : ''}`}
+            className={({ isActive }) =>
+              `${styles.nav__link} ${isActive ? styles.active : ""}`
+            }
+            onClick={handleCloseMenu}
           >
             TABLETS
-          </Link>
+          </NavLink>
         </li>
-        <li onClick={handleCloseMenu}>
-          <Link
+        <li>
+          <NavLink
             to="/accessories"
-            className={`${styles.nav__link} ${active === '/accessories' ? styles.active : ''}`}
+            className={({ isActive }) =>
+              `${styles.nav__link} ${isActive ? styles.active : ""}`
+            }
+            onClick={handleCloseMenu}
           >
             ACCESSORIES
-          </Link>
+          </NavLink>
         </li>
       </ul>
 
       <div className={styles.icons}>
-        <div className={styles.icons__link} onClick={handleCloseMenu}>
-          <Link to={'/favourites'}>
-            <img src="images/icons/Favourites.png" className={styles.icon} />
-          </Link>
-        </div>
-        <div className={styles.icons__link} onClick={handleCloseMenu}>
-          <Link to={'/cart'}>
-            <img src="images/icons/Cart.png" className={styles.icon}/>
-          </Link>
-        </div>
+        <NavLink
+          to="/favourites"
+          className={({ isActive }) =>
+            `${styles.icons__link} ${isActive ? styles.active : ""}`
+          }
+          onClick={handleCloseMenu}
+        >
+          <img
+            src={theme === 'dark'
+              ? 'images/icons/FavouritesDark.png'
+              : 'images/icons/FavouritesLight.png'
+            }
+            alt="Favourites"
+          />
+        </NavLink>
+
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            `${styles.icons__link} ${isActive ? styles.active : ""}`
+          }
+          onClick={handleCloseMenu}
+        >
+          <img
+            src={theme === 'dark'
+              ? 'images/icons/CartDark.png'
+              : 'images/icons/CartLight.png'
+            }
+            alt="Cart"
+          />
+        </NavLink>
       </div>
-    </div>
+    </nav>
   );
 };
 

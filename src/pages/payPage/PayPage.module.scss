@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+
+  &__back {
+  font-size: 16px;
+  text-decoration: underline;
+  color: blue;
+
+  &:hover {
+    color: rgb(63, 63, 176);
+  }
+}
+}

@@ -80,4 +80,9 @@
       box-shadow: 0 0 2px var(--secondary-color);
     }
   }
+
+  & img {
+    width: 20px;
+    height: 20px;
+  }
 }

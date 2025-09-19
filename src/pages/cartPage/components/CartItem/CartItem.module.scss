@@ -6,6 +6,8 @@
   padding: 24px;
   gap: 24px;
   background-color: var(--card-bg);
+  border: 1px solid var(--card-border-bg);
+  border-radius: 2px;
 
   @media(max-width: $mobile-medium) {
     flex-direction: column;
@@ -27,13 +29,11 @@
   }
 
   & button {
-    display: flex;
-    width: 16px;
-    height: 16px;
     background-color: inherit;
+    color: var(--card-border-bg);
 
     &:hover {
-      opacity: 0.5;
+      color: rgb(163, 33, 33);
     }
   }
 
@@ -44,10 +44,6 @@
       width: 80px;
       height: 80px;
     }
-  }
-
-  & img {
-    color: var(--icon-bg); /* Переміщено сюди */
   }
 }
 
@@ -64,7 +60,7 @@
   &__buttons {
     display: flex;
 
-    & h4 {
+    & span {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -82,7 +78,7 @@
     font-size: 20px;
 
     &:hover {
-      background-color: var(--btn-hover-fav-bg);
+      border: 1px solid var(--btn-hover-add-bg);
       color: var(--main-color);
     }
 

@@ -15,7 +15,7 @@ export const getMuiTheme = (mode: 'light' | 'dark') =>
             backgroundColor: mode === 'dark' ? '#161827' : '#fff',
             color: mode === 'dark' ? '#F1F2F9' : '#313237',
             '& .MuiOutlinedInput-notchedOutline': {
-              borderColor: mode === 'dark' ? '#3B3E4A' : '#E2E6E9',
+              borderColor: mode === 'dark' ? '#3B3E4A' : '#c3cacf',
               transition: 'border-color 0.3s ease',
             },
             '&:hover .MuiOutlinedInput-notchedOutline': {

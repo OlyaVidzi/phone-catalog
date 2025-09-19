@@ -13,18 +13,19 @@ const CardItem: React.FC<CardItemProps> = ({ product }) => {
   const LinkTo = `/${product.category}/${product.itemId}`;
 
   return (
-    <div className={styles.container}>
+    <article
+      className={styles.container}
+      aria-label={`Product: ${product.name}, Price: $${product.price}`}
+    >
       <Link to={LinkTo}>
         <div className={styles.imgDiv}>
-          <img src={`${product.image}`}/>
+          <img src={product.image} alt={product.name} />
         </div>
       </Link>
 
       <Link to={LinkTo}>
         <div className={styles.name}>
-          <h3>
-            {product.name.toUpperCase()}
-          </h3>
+          <h3>{product.name.toUpperCase()}</h3>
         </div>
       </Link>
 
@@ -35,26 +36,26 @@ const CardItem: React.FC<CardItemProps> = ({ product }) => {
 
       <div className={styles.line}></div>
 
-      <div className={styles.description}>
+      <dl className={styles.description}>
         <div>
-          <h3>Screen</h3>
-          <h4>{product.screen}</h4>
+          <dt>Screen</dt>
+          <dd>{product.screen}</dd>
         </div>
         <div>
-          <h3>Capacity</h3>
-          <h4>{product.capacity}</h4>
+          <dt>Capacity</dt>
+          <dd>{product.capacity}</dd>
         </div>
         <div>
-          <h3>RAM</h3>
-          <h4>{product.ram}</h4>
+          <dt>RAM</dt>
+          <dd>{product.ram}</dd>
         </div>
-      </div>
+      </dl>
 
       <div className={styles.buttons}>
         <ButtonAddToCart product={product} />
         <ButtonAddToFavorites product={product} />
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -2,16 +2,17 @@ import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 
 const ButtonSwitchTheme = styled(Switch)(({ theme }) => ({
-  width: 60,
-  height: 34,
-  padding: 7,
+  width: 50,
+  height: 28,
+  padding: 5,
+
   '& .MuiSwitch-switchBase': {
     margin: 1,
     padding: 0,
-    transform: 'translateX(6px)',
+    transform: 'translateX(4px)',
     '&.Mui-checked': {
       color: '#fff',
-      transform: 'translateX(22px)',
+      transform: 'translateX(20px)',
       '& .MuiSwitch-thumb:before': {
         backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
           '#fff',
@@ -28,8 +29,8 @@ const ButtonSwitchTheme = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-thumb': {
     backgroundColor: '#001e3c',
-    width: 32,
-    height: 32,
+    width: 24,
+    height: 24,
     '&::before': {
       content: "''",
       position: 'absolute',
@@ -57,17 +58,17 @@ const ButtonSwitchTheme = styled(Switch)(({ theme }) => ({
   },
 
   [theme.breakpoints.down('sm')]: {
-    width: 45,
-    height: 25,
-    padding: 5,
+    width: 30,
+    height: 22,
+    padding: 4,
     '& .MuiSwitch-thumb': {
-      width: 22,
-      height: 22,
+      width: 18,
+      height: 18,
     },
     '& .MuiSwitch-switchBase': {
-      transform: 'translateX(4px)',
+      transform: 'translateX(3px)',
       '&.Mui-checked': {
-        transform: 'translateX(18px)',
+        transform: 'translateX(15px)',
       },
     },
   },
