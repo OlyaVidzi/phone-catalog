@@ -5,11 +5,12 @@ import CartItem from "./components/CartItem";
 import { Link, useLocation } from "react-router-dom";
 import Loader from "../../shared/Loader";
 import EmptyContent from "../../shared/EmptyContent";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 const CartPage = () => {
-  const items = useTypedSelector(state => state.cart.items);
-  const { totalPrice } = useTypedSelector(state => state.cart);
+  const items = useSelector((state: RootState) => state.cart.items);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const countItemsInCart =
     items.reduce((total, item) => total + item.quantity, 0);
   const { pathname } = useLocation();

@@ -2,18 +2,20 @@ import { useContext, useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import HamburgerMenu from './HamburgerMenu';
 import { Link, NavLink } from 'react-router-dom';
-import { useTypedSelector } from '../hooks/useTypedSelector';
 import { ThemeContext } from '../contexts/ThemeContext';
 import ButtonSwitchTheme from
   '../shared/Buttons/ButtonSwitchTheme/ButtonSwitchTheme';
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const cartItems = useTypedSelector(state => state.cart.items);
-  const favouritesItems = useTypedSelector(state => state.favourites.items);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const favouritesItems =
+    useSelector((state: RootState) => state.favourites.items);
   const countItemsInCart =
     cartItems.reduce((total, item) => total + item.quantity, 0);
 

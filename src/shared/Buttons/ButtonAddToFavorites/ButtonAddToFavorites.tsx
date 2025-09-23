@@ -2,14 +2,15 @@ import React from 'react';
 import styles from './ButtonAddToFavorites.module.scss';
 import cn from 'classnames';
 import { IProductCard } from '../../../interfaces/ProductCard.interface';
-import { useActions } from '../../../store/useActions';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useActions } from '../../../hooks/useActions';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 const ButtonAddToFavorites: React.FC<{
   product: IProductCard,
 }> = ({ product }) => {
   const { addToFavourites, removeFromFavourites } = useActions();
-  const items = useTypedSelector(state => state.favourites.items);
+  const items = useSelector((state: RootState) => state.favourites.items);
   const existingItem = items.find(item => item.id === product.id);
 
   const handleAddToFavorites = () => {

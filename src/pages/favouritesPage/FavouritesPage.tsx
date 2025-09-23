@@ -5,10 +5,11 @@ import Breadcrumbs from "../../shared/Breadcrumbs";
 import EmptyContent from "../../shared/EmptyContent";
 import { useEffect, useState } from "react";
 import Loader from "../../shared/Loader";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 const FavouritesPage = () => {
-  const items = useTypedSelector(state => state.favourites.items);
+  const items = useSelector((state: RootState) => state.favourites.items);
   const { pathname } = useLocation();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 

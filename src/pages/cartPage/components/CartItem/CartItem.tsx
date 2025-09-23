@@ -2,7 +2,7 @@ import React from "react";
 import { ICart } from "../../../../interfaces/Cart.interface";
 import styles from './CartItem.module.scss';
 import { Link } from "react-router-dom";
-import { useActions } from "../../../../store/useActions";
+import { useActions } from "../../../../hooks/useActions";
 import { CiSquareRemove } from "react-icons/ci";
 
 const CartItem: React.FC<{ item: ICart }> = ({ item }) => {

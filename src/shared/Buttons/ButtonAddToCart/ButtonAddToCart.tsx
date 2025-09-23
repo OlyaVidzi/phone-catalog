@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './ButtonAddToCart.module.scss';
 import cn from 'classnames';
-import { useActions } from '../../../store/useActions';
+import { useActions } from '../../../hooks/useActions';
 import { IProductCard } from '../../../interfaces/ProductCard.interface';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 const ButtonAddToCart: React.FC<{ product: IProductCard }> = ({ product }) => {
   const { addToCart, deleteWithCart } = useActions();
-  const { items } = useTypedSelector(state => state.cart);
+  const items = useSelector((state: RootState) => state.cart.items);
   const existingItem = items.find(item => item.id === product.id);
 
   const handleAddToCart = () => {
